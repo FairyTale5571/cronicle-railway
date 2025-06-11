@@ -3,7 +3,7 @@ version: '3.8'
 services:
   cronicle:
     build:
-      context: .
+      context: ./cronicle
       dockerfile: Dockerfile
     container_name: cronicle
     restart: unless-stopped

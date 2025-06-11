@@ -1,0 +1,16 @@
+services:
+  cronicle:
+    image: soulteary/cronicle:latest
+    container_name: cronicle
+    ports:
+      - "${PORT:-3012}:3012"
+    volumes:
+      - ./cronicle_data:/opt/cronicle/data
+      - ./cronicle_data:/opt/cronicle/logs
+    environment:
+      CRONICLE_debug_level: 9
+      CRONICLE_base_url: https://${{RAILWAY_STATIC_URL}}
+      PORT: ${PORT:-3012}
+
+volumes:
+  cronicle_data:
